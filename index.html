@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <title>NEON RACER — Гонки</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Neon Racer">
+        <span class="brand-mark">N</span>
+        <span>NEON<span class="brand-accent">RACER</span></span>
+      </a>
+      <div class="top-status"><span class="live-dot"></span> ARCADE MODE</div>
+      <button class="icon-button" id="soundBtn" aria-label="Включить или выключить звук" title="Звук">♫</button>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> УЛИЧНЫЕ ГОНКИ · 01</p>
+        <h1>ПОЙМАЙ<br><span>СКОРОСТЬ.</span></h1>
+        <p class="hero-description">Уходи от трафика, собирай монеты и поставь новый рекорд. Трасса ждёт.</p>
+        <div class="hero-tags"><span>⚡ Реакция</span><span>◈ Рекорды</span><span>↗ Бесконечная трасса</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-glow"></div>
+        <div class="art-ring ring-one"></div><div class="art-ring ring-two"></div>
+        <div class="art-car">
+          <div class="car-window"></div><div class="car-hood"></div>
+          <div class="car-wheel wheel-left"></div><div class="car-wheel wheel-right"></div>
+          <div class="car-light light-left"></div><div class="car-light light-right"></div>
+        </div>
+        <span class="speed-label">280 <small>KM/H</small></span>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <div class="game-panel">
+        <div class="panel-heading">
+          <div><span class="section-kicker">LIVE SESSION</span><h2>Заезд</h2></div>
+          <div class="status-pill" id="gameStatus"><span></span> ГОТОВ</div>
+        </div>
+
+        <div class="hud">
+          <div class="hud-card"><span>СКОРОСТЬ</span><strong id="speedValue">000 <small>км/ч</small></strong></div>
+          <div class="hud-card"><span>СЧЁТ</span><strong id="scoreValue">00000</strong></div>
+          <div class="hud-card"><span>МОНЕТЫ</span><strong class="coin-value">◈ <b id="coinValue">0</b></strong></div>
+        </div>
+
+        <div class="track-wrap" id="trackWrap">
+          <canvas id="gameCanvas" width="480" height="720" aria-label="Игровая трасса. Используй стрелки или A и D для управления."></canvas>
+          <div class="game-overlay" id="startOverlay">
+            <div class="overlay-icon">▶</div>
+            <p class="overlay-kicker">ГОТОВ К ЗАЕЗДУ?</p>
+            <h3>ТВОЯ ТРАССА.<br>ТВОИ ПРАВИЛА.</h3>
+            <p>Обходи машины и собирай монеты.</p>
+            <button class="primary-button" id="startBtn">НАЧАТЬ ЗАЕЗД <span>→</span></button>
+            <span class="key-hint">← → ИЛИ A / D</span>
+          </div>
+          <div class="game-overlay hidden" id="crashOverlay">
+            <div class="overlay-icon crash-icon">!</div>
+            <p class="overlay-kicker">ЗАЕЗД ЗАВЕРШЁН</p>
+            <h3>ЭТО БЫЛО<br>БЛИЗКО.</h3>
+            <div class="result-row"><span>ТВОЙ СЧЁТ</span><strong id="finalScore">0</strong></div>
+            <div class="result-row"><span>СОБРАНО МОНЕТ</span><strong id="finalCoins">0</strong></div>
+            <button class="primary-button" id="restartBtn">ЕЩЁ ОДИН ЗАЕЗД <span>↻</span></button>
+          </div>
+          <div class="mobile-controls" aria-label="Управление">
+            <button id="leftBtn" aria-label="Влево">←</button>
+            <button id="rightBtn" aria-label="Вправо">→</button>
+          </div>
+        </div>
+        <div class="game-footer"><span><i class="footer-dot"></i> <span id="footerMessage">Система готова к запуску</span></span><span>v1.0.0</span></div>
+      </div>
+
+      <aside class="side-column">
+        <div class="info-card record-card">
+          <div class="card-topline"><span class="section-kicker">ТВОЙ ПРОГРЕСС</span><span class="trophy">♛</span></div>
+          <p class="muted-label">ЛУЧШИЙ РЕЗУЛЬТАТ</p>
+          <div class="record-number" id="bestScore">00000</div>
+          <div class="record-bottom"><span>Личный рекорд</span><span class="record-badge">TOP DRIVER</span></div>
+        </div>
+
+        <div class="info-card">
+          <span class="section-kicker">КАК ИГРАТЬ</span>
+          <h3>Управляй точно.</h3>
+          <div class="instruction"><span class="keycap">←</span><span class="keycap">→</span><div><strong>Меняй полосу</strong><small>Обходи встречный трафик</small></div></div>
+          <div class="instruction"><span class="keycap">A</span><span class="keycap">D</span><div><strong>Клавиши управления</strong><small>Или кнопки на экране</small></div></div>
+          <div class="instruction"><span class="coin-icon">◈</span><div><strong>Собирай монеты</strong><small>Они добавляют бонусные очки</small></div></div>
+        </div>
+
+        <div class="tip-card"><span class="tip-icon">✦</span><div><strong>Совет гонщика</strong><p>С каждым пройденным метром скорость растёт. Смотри вперёд и не зажимайся между машинами.</p></div></div>
+      </aside>
+    </section>
+    <footer class="site-footer"><span>NEON RACER © 2026</span><span>СОЗДАНО ДЛЯ ТЕХ, КТО ЛЮБИТ СКОРОСТЬ</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
